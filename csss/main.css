@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.fll{
+    float: left;
+}
+.flr{
+    float: right;
+}
+.clearfix{
+    display: block;
+    content: '';
+    clear: both;
+    overflow: hidden;
+}

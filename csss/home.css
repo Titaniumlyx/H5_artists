@@ -1,0 +1,31 @@
+.container{
+}
+.container header{
+    display: block;
+    text-align: center;
+    font-size: 15px;
+    color: #999;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+}
+.container header .img1{
+    position: absolute;
+    right: 38px;
+    top: 2px;
+    width: 1.1rem;
+    height: 1.1rem;
+}
+.container header .img2{
+    position: absolute;
+    right: 12px;
+    top: 4px;
+    width: 0.93rem;
+    height: 0.93rem;
+}
+.container nav{
+    margin-top: 30px;
+}
+/*.container header*/
+/*.container header*/
