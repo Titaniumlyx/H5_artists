@@ -24,6 +24,7 @@
     width: 0.93rem;
     height: 0.93rem;
 }
+/*导航轮播部分*/
 .container nav{
     display: block;
     margin-top: 3.13rem;
@@ -78,7 +79,6 @@
 .container nav .list .p6{
     transform:translate3d(896px,0,0) scale(0.81);
 }
-
 .container nav .btn{
     position: absolute;
     top: 50%;
@@ -100,4 +100,95 @@
     right: 2.917rem;
     z-index: 10;
 }
-/*.container nav*/
+/*中间内容部分*/
+.container section{
+    display: block;
+}
+  /*艺术品推荐*/
+.container section .artwork .headline{
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    color: #333;
+    font-size: 20px;
+}
+.container section .artwork .headline img{
+    width: 1rem;
+    height: 1rem;
+}
+.container section .artwork .workList{
+    display: flex;
+    justify-content: space-around;
+    padding: 0 0.6rem;
+    margin-bottom: 2.2rem;
+}
+.container section .artwork .workList li img{
+    width: 9.8rem;
+    height: 10rem;
+}
+.container section .artwork .workList li .art_title{
+    font-size: 18px;
+    color: #555;
+    margin-top: 0.74rem;
+}
+.container section .artwork .workList li .art_brief{
+    font-size: 15px;
+    color: #888;
+    line-height: 1.5;
+}
+.container section .artwork .workList li .art_price{
+    font-size: 14px;
+    color: #DC4A73;
+}
+  /*人气艺术家*/
+.container section .popular_artist .headline{
+    height: 3.4rem;
+    border-top: 0.4rem solid #eee;
+    line-height: 4.875rem;
+    text-align: center;
+    color: #333;
+    font-size: 20px;
+}
+.container section .popular_artist .headline img{
+    width: 1rem;
+    height: 1rem;
+}
+.container section .popular_artist .artist_list{
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0 0.6rem;
+    margin-bottom: 1.4rem;
+}
+.container section .popular_artist .artist_list li{
+    margin-top: 1.2rem;
+}
+.container section .popular_artist .artist_list li .artist_avatar{
+    width: 9.8rem;
+    height: 10rem;
+}
+.container section .popular_artist .artist_list li .artist_nation{
+    display: block;
+    width: 2rem;
+    height: 1.2rem;
+}
+.container section .popular_artist .artist_list li .artist_name{
+    font-size: 14px;
+    color: #333;
+    margin-top: 0.4rem;
+}
+.container section .popular_artist .artist_list li .artist_class{
+    font-size: 14px;
+    color: #888;
+    line-height: 1.7;
+}
+.container section .popular_artist .artist_list li .artist_toKnow{
+    width: 3.2rem;
+    height: 1.4rem;
+    background: #D93365;
+    line-height: 1.4rem;
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+}
