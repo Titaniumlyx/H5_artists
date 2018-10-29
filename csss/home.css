@@ -1,9 +1,7 @@
-.container{
-}
 .container header{
     display: block;
     text-align: center;
-    font-size: 15px;
+    font-size: 18px;
     color: #999;
     position: absolute;
     top: 10px;
@@ -12,8 +10,8 @@
 }
 .container header .img1{
     position: absolute;
-    right: 38px;
-    top: 2px;
+    right: 2.8rem;
+    top: 0.125rem;
     width: 1.1rem;
     height: 1.1rem;
 }
@@ -191,4 +189,109 @@
     text-align: center;
     font-size: 12px;
     color: #fff;
+}
+  /*活动专题*/
+.container section .activity_theme .headline{
+    height: 3.4rem;
+    border-top: 0.4rem solid #eee;
+    line-height: 4.875rem;
+    text-align: center;
+    color: #333;
+    font-size: 20px;
+}
+.container section .activity_theme .headline img{
+    width: 1rem;
+    height: 1rem;
+}
+.container section .activity_theme .activity_list{
+    padding: 0 1.4rem;
+    margin-bottom: 1.4rem;
+}
+.container section .activity_theme .activity_list li{
+    margin: 1rem 0 1.8rem;
+}
+.container section .activity_theme .activity_list li img{
+    width: 20.6rem;
+    height: 12rem;
+}
+.container section .activity_theme .activity_list li .activity_title{
+    font-size: 17px;
+    color: #333;
+    margin-top: 0.4rem;
+}
+.container section .activity_theme .activity_list li .activity_brief{
+    font-size: 15px;
+    color: #888;
+    line-height: 1.7;
+}
+  /*猜你喜欢*/
+.container section{
+    margin-bottom: 4rem;
+}
+.container section .guess_you .headline{
+    height: 3.4rem;
+    border-top: 0.4rem solid #eee;
+    line-height: 4.875rem;
+    text-align: center;
+    color: #333;
+    font-size: 20px;
+}
+.container section .guess_you .workList{
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0 0.6rem;
+    margin-bottom: 1.4rem;
+}
+.container section .guess_you .workList li{
+    margin-top: 1rem;
+}
+.container section .guess_you .workList li img{
+    width: 9.8rem;
+    height: 10rem;
+}
+.container section .guess_you .workList li .art_title{
+    font-size: 18px;
+    color: #555;
+    margin-top: 0.74rem;
+}
+.container section .guess_you .workList li .art_brief{
+    font-size: 15px;
+    color: #888;
+    line-height: 1.5;
+}
+.container section .guess_you .workList li .art_price{
+    font-size: 14px;
+    color: #DC4A73;
+}
+/*底部*/
+.container footer{
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top: 1px solid #eee;
+    padding: 0.4rem;
+    background: #fff;
+}
+.container footer .footer_wrap{
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-around;
+}
+.container footer .footer_wrap li{
+    display: flex;
+    flex-direction: column;
+}
+.container footer .footer_wrap li img{
+    width: 1.2rem;
+    height: 1.2rem;
+    margin: 0 auto;
+}
+.container footer .footer_wrap li span{
+    font-size: 14px;
+    color: #444;
+    text-align: center;
 }
