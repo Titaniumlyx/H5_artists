@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test测试</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-size: 12px;
+        }
+
+
+        .tab{
+            width: 298px;
+            height: 98px;
+            border: 1px solid #eee;
+            margin: 10px;
+            overflow: hidden;
+        }
+
+
+        .tab_title{
+            height: 27px;
+            position: relative;
+            background: #f7f7f7;
+        }
+
+
+        .tab_title ul{
+            width: 301px;
+            position: absolute;
+            left: -1;
+        }
+
+
+        .tab_title li{
+            float: left;
+            width: 58px;
+            height: 26px;
+            line-height: 26px;
+            text-align: center;
+            padding: 0 1px;
+            border-bottom: 1px solid #eee;
+            overflow: hidden;
+        }
+
+
+        .tab li a:link,.tab li a:visited{
+            text-decoration: none;
+            color: #000;
+        }
+
+
+        .tab li a:hover{
+            color: #f90;
+            font-weight: 700; /*字体变粗*/
+        }
+
+
+        .tab_title li.selector{
+            background: #fff;
+            border-bottom-color: #fff;
+            border-left: 1px solid #eee;
+            border-right: 1px solid #eee;
+            padding: 0;
+        }
+
+
+        .tab .tab_content .tabct {
+            margin: 10px 10px 10px 19px;
+        }
+
+
+        .tab .tab_content .tabct ul li{
+            float: left;
+            width: 134px;
+            height: 25px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div class="tab" id="tab">
+    <div id="tab_title" class="tab_title">
+        <ul>
+            <li class="selector"><a href="#">公告</a></li>
+            <li><a href="#">规则</a></li>
+            <li><a href="#">论坛</a></li>
+            <li><a href="#">安全</a></li>
+            <li><a href="#">公益</a></li>
+        </ul>
+    </div>
+    <div class="tab_content" id="tab_content">
+        <div class="tabct" style="display: block;">
+            <ul>
+                <li><a href="#">公告1</a></li>
+                <li><a href="#">公告2</a></li>
+                <li><a href="#">公告3</a></li>
+                <li><a href="#">公告4</a></li>
+            </ul>
+        </div>
+        <div class="tabct" style="display: none;">
+            <ul>
+                <li><a href="#">规则1</a></li>
+                <li><a href="#">规则2</a></li>
+                <li><a href="#">规则3</a></li>
+                <li><a href="#">规则4</a></li>
+            </ul>
+        </div>
+        <div class="tabct" style="display: none;">
+            <ul>
+                <li><a href="#">论坛1</a></li>
+                <li><a href="#">论坛2</a></li>
+                <li><a href="#">论坛3</a></li>
+                <li><a href="#">论坛4</a></li>
+            </ul>
+        </div>
+        <div class="tabct" style="display: none;">
+            <ul>
+                <li><a href="#">安全1</a></li>
+                <li><a href="#">安全2</a></li>
+                <li><a href="#">安全3</a></li>
+                <li><a href="#">安全4</a></li>
+            </ul>
+        </div>
+        <div class="tabct" style="display: none;">
+            <ul>
+                <li><a href="#">公益1</a></li>
+                <li><a href="#">公益2</a></li>
+                <li><a href="#">公益3</a></li>
+                <li><a href="#">公益4</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+
+<script>
+    function $(id) {
+        return typeof id == "string"?document.getElementById(id):id;
+    }
+
+
+    window.onload = function() {
+        var titleName = $("tab_title").getElementsByTagName("li");
+        var tabContent = $("tab_content").getElementsByTagName("div");
+        if(titleName.length != tabContent.length){
+            return;
+        }
+
+        for(var i = 0; i < titleName.length; i++) {
+            titleName[i].id = i;
+            titleName[i].onmouseover = function() {
+                for(var j = 0; j < titleName.length; j++){
+                    titleName[j].className = "";
+                    tabContent[j].style.display = "none";
+                }
+                this.className = "selector";
+                tabContent[this.id].style.display = "block";
+            }
+        }
+    }
+</script>
+
+</html>
