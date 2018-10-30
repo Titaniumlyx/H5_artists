@@ -166,6 +166,7 @@
     font-size: 12px;
     font-weight: 300;
 }
+   /*活动部分*/
 .container section .content .content_activities ul li{
     background: #E8E8E8;
     width: 22rem;
@@ -204,14 +205,6 @@
     left: 10rem;
     line-height: 1.5;
 }
-/*.container section .content .content_activities ul li*/
-/*.container section .content .content_activities ul li*/
-/*.container section .content .content_activities ul li*/
-/*.container section .content .content_activities*/
-/*.container section .content .content_activities*/
-/*.container section .content .content_activities*/
-/*.container section .content .content_activities*/
-
 /*底部*/
 .container footer{
     display: block;
