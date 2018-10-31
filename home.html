@@ -6,6 +6,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="./csss/home.css">
     <link rel="stylesheet" href="./csss/main.css">
+    <link rel="stylesheet" href="./csss/common.css">
 </head>
 <!--[if lt IE 9]>
 <script src="/dist/html5shiv.js"></script>
@@ -62,7 +63,7 @@
             <div class="artwork">
                 <div class="headline">
                     <span>艺术品推荐</span>
-                    <img src="./images/index/you_more.png" alt="点击更多">
+                    <!--<img src="./images/index/you_more.png" alt="点击更多">-->
                 </div>
                 <div>
                     <ul class="workList">
@@ -85,16 +86,17 @@
             <div class="popular_artist">
                 <div class="headline">
                     <span>人气艺术家</span>
-                    <img src="./images/index/you_more.png" alt="点击更多">
                 </div>
                 <div>
                     <ul class="artist_list">
                         <li>
-                            <img class="artist_avatar" src="./images/index/artist.jpg" alt="人气艺术家">
-                            <img class="artist_nation" src="./images/index/nation.png" alt="国籍">
-                            <div class="artist_name">Mariyana Dimitrova</div>
-                            <div class="artist_class">保加利亚-传统服饰、刺绣</div>
-                            <div class="artist_toKnow">了解</div>
+                            <a href="artist_works.html">
+                                <img class="artist_avatar" src="./images/index/artist.jpg" alt="人气艺术家">
+                                <img class="artist_nation" src="./images/index/nation.png" alt="国籍">
+                                <div class="artist_name">Mariyana Dimitrova</div>
+                                <div class="artist_class">保加利亚-传统服饰、刺绣</div>
+                                <div class="artist_toKnow">了解</div>
+                            </a>
                         </li>
                         <li>
                             <img class="artist_avatar" src="./images/index/artist.jpg" alt="人气艺术家">
@@ -124,14 +126,15 @@
             <div class="activity_theme">
                 <div class="headline">
                     <span>活动专题</span>
-                    <img src="./images/index/you_more.png" alt="点击更多">
                 </div>
                 <div>
                     <ul class="activity_list">
                         <li>
-                            <img src="./images/index/activity_img.png" alt="活动专题">
-                            <div class="activity_title">当代艺术馆新西方艺术联展</div>
-                            <div class="activity_brief">你不了解的艺术，你熟悉的艺术，最新的交织形态</div>
+                            <a href="activity_detail.html">
+                                <img src="./images/index/activity_img.png" alt="活动专题">
+                                <div class="activity_title">当代艺术馆新西方艺术联展</div>
+                                <div class="activity_brief">你不了解的艺术，你熟悉的艺术，最新的交织形态</div>
+                            </a>
                         </li>
                         <li>
                             <img src="./images/index/activity_img.png" alt="活动专题">
@@ -185,20 +188,28 @@
             <div>
                 <ul class="footer_wrap">
                     <li>
-                        <img src="./images/index/bottom/home.png" alt="首页">
-                        <span>首页</span>
+                        <a href="javascript:;">
+                            <img src="./images/index/bottom/home.png" alt="首页">
+                            <span>首页</span>
+                        </a>
                     </li>
                     <li>
-                        <img src="./images/index/bottom/artist-active.png" alt="艺术家">
-                        <span>艺术家</span>
+                        <a href="artist_search.html">
+                            <img src="./images/index/bottom/artist-active.png" alt="艺术家">
+                            <span>艺术家</span>
+                        </a>
                     </li>
                     <li>
-                        <img src="./images/index/bottom/active.png" alt="活动">
-                        <span>活动</span>
+                        <a href="activity_search.html">
+                            <img src="./images/index/bottom/active.png" alt="活动">
+                            <span>活动</span>
+                        </a>
                     </li>
                     <li>
-                        <img src="./images/index/bottom/contact.png" alt="联系">
-                        <span>联系</span>
+                        <a href="javascript:;">
+                            <img src="./images/index/bottom/contact.png" alt="联系">
+                            <span>联系</span>
+                        </a>
                     </li>
                 </ul>
             </div>

@@ -62,34 +62,3 @@
     display: block;
     margin-bottom: 4rem;
 }
-
-/*底部*/
-.container footer{
-    display: block;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    border-top: 1px solid #eee;
-    padding: 0.4rem;
-    background: #fff;
-}
-.container footer .footer_wrap{
-    display: -webkit-flex;
-    display: flex;
-    justify-content: space-around;
-}
-.container footer .footer_wrap li{
-    display: flex;
-    flex-direction: column;
-}
-.container footer .footer_wrap li img{
-    width: 1.2rem;
-    height: 1.2rem;
-    margin: 0 auto;
-}
-.container footer .footer_wrap li span{
-    font-size: 14px;
-    color: #444;
-    text-align: center;
-}
