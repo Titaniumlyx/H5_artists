@@ -6,19 +6,20 @@
 </head>
 <body>
 <div id="container">
-    {{message}}
-    {{my_data}}
+    <!--{{message}}-->
+    <!--{{my_data}}-->
 </div>
 </body>
 <script type="text/javascript" src="../dist/jquery-3.1.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
 <script>
-    // $(function(){
-    //
-    //     var data = getURLParameter("data");
-    //     // alert(data)
-    //     console.log(data)
-    // })  // 得到A页面跳转时带过来的参数
+    $(function(){
+
+        var data = getURLParameter("data");
+        // alert(data)
+        console.log(data)
+        $("#container").append(data)
+    })  // 得到A页面跳转时带过来的参数
 
     // $(document).ready(function () {
     //     var data = getURLParameter("data");
@@ -30,25 +31,25 @@
         return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null;
     }
 
-    var app = new Vue({
-        el: '#container',
-        data: {
-            message: '数据1111',
-            my_data: ''
-        },
-        methods: {
-            getData() {
-                this.my_data = this.getURLParameter("data");
-                // alert(data)
-                console.log(this.my_data)
-            },
-            // getURLParameter(name) {
-            //     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null;
-            // }
-        },
-        created(){
-            this.getData()
-        }
-    })
+    // var app = new Vue({
+    //     el: '#container',
+    //     data: {
+    //         message: '数据1111',
+    //         my_data: ''
+    //     },
+    //     methods: {
+    //         getData() {
+    //             this.my_data = this.getURLParameter("data");
+    //             // alert(data)
+    //             console.log(this.my_data)
+    //         },
+    //         // getURLParameter(name) {
+    //         //     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null;
+    //         // }
+    //     },
+    //     created(){
+    //         this.getData()
+    //     }
+    // })
 </script>
 </html>

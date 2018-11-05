@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./csss/home.css">
     <link rel="stylesheet" href="./csss/main.css">
     <link rel="stylesheet" href="./csss/common.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_835942_mxd725jmnrk.css">
 </head>
 <!--[if lt IE 9]>
 <script src="/dist/html5shiv.js"></script>
@@ -188,26 +189,30 @@
             <div>
                 <ul class="footer_wrap">
                     <li>
-                        <a href="javascript:;">
-                            <img src="./images/index/bottom/home.png" alt="首页">
+                        <a href="javascript:;" class="footer_active">
+                            <!--<img src="./images/index/bottom/home.png" alt="首页">-->
+                            <i class="iconfont icon-shouye" style="font-size: 20px;"></i>
                             <span>首页</span>
                         </a>
                     </li>
                     <li>
                         <a href="artist_search.html">
-                            <img src="./images/index/bottom/artist-active.png" alt="艺术家">
-                            <span>艺术家</span>
+                            <!--<img src="./images/index/bottom/artist-active.png" alt="艺术家">-->
+                            <i class="iconfont icon-huihuaban" style="font-size: 22px;"></i>
+                            <span style="margin-top: -0.1rem;">艺术家</span>
                         </a>
                     </li>
                     <li>
-                        <a href="activity_search.html">
-                            <img src="./images/index/bottom/active.png" alt="活动">
-                            <span>活动</span>
+                        <a href="activity_search.html" style="margin-top: 0.1rem;">
+                            <!--<img src="./images/index/bottom/active.png" alt="活动">-->
+                            <i class="iconfont icon-icon" style="font-size: 17px;"></i>
+                            <span style="margin-top: 0.24rem;">活动</span>
                         </a>
                     </li>
                     <li>
                         <a href="javascript:;">
-                            <img src="./images/index/bottom/contact.png" alt="联系">
+                            <!--<img src="./images/index/bottom/contact.png" alt="联系">-->
+                            <i class="iconfont icon-lianxi" style="font-size: 20px;"></i>
                             <span>联系</span>
                         </a>
                     </li>
@@ -216,67 +221,9 @@
         </footer>
     </div>
 </body>
-
 <script type="text/javascript" src="./dist/jquery-3.1.1.min.js"></script>
-<script type="text/javascript">
-    var cArr=["p6","p5","p4","p3","p2","p1"];
-    var index=0;
-    $(".prev").click(
-        function(){
-            previmg()
-        }
-    )
-    $(".next").click(
-        function () {
-            nextimg()
-        }
-    )
-    function previmg(){  // 上一张
-        cArr.unshift(cArr[5]);  // 向数组的开头添加元素，返回新的长度
-        cArr.pop();   // 删除并返回数组的最后一个元素
-        //i是元素的索引，从0开始
-        //e为当前处理的元素
-        //each循环，当前处理的元素移除所有的class，然后添加数组索引i的class
-        $("li").each(function(i,e){
-            $(e).removeClass().addClass(cArr[i]);
-        })
-        index--;
-        if (index<0) {
-            index=6;
-        }
-    }
-    function nextimg(){  // 下一张
-        cArr.push(cArr[0]);
-        cArr.shift();
-        $("li").each(function(i,e){
-            $(e).removeClass().addClass(cArr[i]);
-        })
-        index++;
-        if (index>6) {
-            index=0;
-        }
-    }
+<script type="text/javascript" src="./dist/pageJS/swiper.js"></script>
 
-    //点击class为p2的元素触发上一张照片的函数
-    $(document).on("click",".p2",function(){
-        previmg();
-        return false;//返回一个false值，让a标签不跳转
-    });
-    //点击class为p4的元素触发下一张照片的函数
-    $(document).on("click",".p4",function(){
-        nextimg();
-        return false;
-    });
 
-    //	鼠标移入nav时清除定时器
-    $("nav").mouseover(function(){
-        clearInterval(timer);
-    })
-    //	鼠标移出nav时开始定时器
-    $("nav").mouseleave(function(){
-        timer=setInterval(nextimg,4000);
-    })
-    //	进入页面自动开始定时器
-    timer=setInterval(nextimg,4000);
-</script>
+
 </html>

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./csss/main.css">
     <link rel="stylesheet" href="./csss/activity_search.css">
     <link rel="stylesheet" href="./csss/common.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_835942_mxd725jmnrk.css">
 </head>
 <!--[if lt IE 9]>
 <script src="/dist/html5shiv.js"></script>
@@ -64,22 +65,8 @@
     </nav>
     <!--中间部分--活动-->
     <section>
-        <ul class="activity_list">
-            <li>
-                <img src="./images/index/activity_img.png" alt="活动展示">
-                <div class="activity_title">当代艺术馆新西方艺术联展</div>
-                <div class="activity_brief">你不了解的艺术，你熟悉的艺术，最新的交织形态</div>
-            </li>
-            <li>
-                <img src="./images/index/activity_img.png" alt="活动专题">
-                <div class="activity_title">当代艺术馆新西方艺术联展</div>
-                <div class="activity_brief">你不了解的艺术，你熟悉的艺术，最新的交织形态</div>
-            </li>
-            <li>
-                <img src="./images/index/activity_img.png" alt="活动专题">
-                <div class="activity_title">当代艺术馆新西方艺术联展</div>
-                <div class="activity_brief">你不了解的艺术，你熟悉的艺术，最新的交织形态</div>
-            </li>
+        <ul class="activity_list" id="activity_list">
+
         </ul>
         <div class="hint">已经到底了噢~</div>
     </section>
@@ -89,25 +76,29 @@
             <ul class="footer_wrap">
                 <li>
                     <a href="home.html">
-                        <img src="./images/index/bottom/home.png" alt="首页">
+                        <!--<img src="./images/index/bottom/home.png" alt="首页">-->
+                        <i class="iconfont icon-shouye" style="font-size: 20px;"></i>
                         <span>首页</span>
                     </a>
                 </li>
                 <li>
                     <a href="artist_search.html">
-                        <img src="./images/index/bottom/artist-active.png" alt="艺术家">
-                        <span>艺术家</span>
+                        <!--<img src="./images/index/bottom/artist-active.png" alt="艺术家">-->
+                        <i class="iconfont icon-huihuaban" style="font-size: 22px;"></i>
+                        <span style="margin-top: -0.1rem;">艺术家</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;" style="margin-top: 0.1rem;"  class="footer_active">
+                        <!--<img src="./images/index/bottom/active.png" alt="活动">-->
+                        <i class="iconfont icon-icon" style="font-size: 17px;"></i>
+                        <span style="margin-top: 0.24rem;">活动</span>
                     </a>
                 </li>
                 <li>
                     <a href="javascript:;">
-                        <img src="./images/index/bottom/active.png" alt="活动">
-                        <span>活动</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:;">
-                        <img src="./images/index/bottom/contact.png" alt="联系">
+                        <!--<img src="./images/index/bottom/contact.png" alt="联系">-->
+                        <i class="iconfont icon-lianxi" style="font-size: 20px;"></i>
                         <span>联系</span>
                     </a>
                 </li>
@@ -117,5 +108,19 @@
 </div>
 </body>
 <script type="text/javascript" src="./dist/jquery-3.1.1.min.js"></script>
+
+<script>
+    var str = "";
+    for (var i=0;i<5;i++){
+        str += "<li>\n";
+        str += " <a href=\"activity_detail.html\">";
+        str += "  <img src=\"./images/index/activity_img.png\" alt=\"活动展示\">";
+        str += "  <div class=\"activity_title\">当代艺术馆新西方艺术联展</div>";
+        str += "  <div class=\"activity_brief\">你不了解的艺术，你熟悉的艺术，最新的交织形态</div>";
+        str += " </a>";
+        str += "</li>";
+    }
+    $("#activity_list").append(str);
+</script>
 
 </html>

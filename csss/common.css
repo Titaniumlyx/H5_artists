@@ -18,13 +18,24 @@
     display: flex;
     flex-direction: column;
 }
-.container footer .footer_wrap li a img{
-    width: 1.2rem;
-    height: 1.2rem;
+/*.container footer .footer_wrap li a img{*/
+    /*width: 1.2rem;*/
+    /*height: 1.2rem;*/
+    /*margin: 0 auto;*/
+/*}*/
+.container footer .footer_wrap li a i{
+    display: block;
     margin: 0 auto;
+    color: #808080;
 }
 .container footer .footer_wrap li a span{
     font-size: 14px;
-    color: #444;
+    color: #808080;
     text-align: center;
+}
+.container footer .footer_wrap li .footer_active i{
+    color: #F92C63;
+}
+.container footer .footer_wrap li .footer_active span{
+    color: #F92C63;
 }
