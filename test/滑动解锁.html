@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滑动解锁</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #slider-box {
+            width: 300px;
+            height: 50px;
+            border-radius: 4px;
+            background: #e5e5ff;
+            margin: 250px auto;
+            position: relative;
+        }
+        #slider {
+            width: 48px;
+            height: 48px;
+            border: 1px solid #ddd;
+            text-align: center;
+            line-height: 48px;
+            display: inline-block;
+            background: #fff;
+            border-radius: 4px;
+            cursor: move;
+            position: absolute;
+            left: 0;
+            z-index: 5;
+        }
+        #slider-text {
+            text-align: center;
+            line-height: 50px;
+            display: inline-block;
+            width: 100%;
+            height: 50px;
+            font-family: "微软雅黑";
+            position: absolute;
+            left: 0;
+            z-index: 4;
+        }
+        #slider-bg {
+            width: 0;
+            height: 48px;
+            background: #8EF27C;
+            position: absolute;
+            z-index: 3;
+            border-radius: 4px;
+        }
+        #slider-Emerge {
+            width: 100px;
+            /*background: #f00;*/
+            height: 50px;
+            position: absolute;
+        }
+        #stop-go {
+            width: 48px;
+            height: 48px;
+            border: 1px solid #eee;
+            background:#36F;
+            position: absolute;
+            right: -1px;
+            display: none;
+            text-align: center;
+            line-height: 48px;
+            color: #fff;
+            font-family: "微软雅黑";
+            border-radius: 4px;
+            z-index: 5;
+        }
+        div{
+            -moz-user-select:none;
+            -webkit-user-select:none;
+            user-select:none;  /*设置或检索是否允许用户选中文本*/
+        }
+    </style>
+</head>
+<body>
+<div id="slider-box">
+    <span id="slider">＞</span>
+    <span id="slider-text">滑动解锁</span>
+    <span id="slider-bg"></span>
+    <span id="slider-Emerge"></span>
+    <span id="stop-go">∨</span>
+</div>
+</body>
+<script type="text/javascript">
+    var sliderel={
+            $: function(selector){
+                return document.getElementById(selector)
+            },
+            getEvent:function(e){
+
+                var e=e || window.event
+                return e;
+            },
+            stopBubble:function(e){
+                var e =this.getEvent(e)
+                // console.log(typeof e.preventDefault)  // 结果是 function
+                if(typeof e.preventDefault != "undefined"){  // != "undefined" 说明e.preventDefault() 能用
+                    e.preventDefault();  // 阻止元素发生默认的行为
+                }else{
+                    e.returnValue = false;
+                }
+            }
+        },
+        Elemt={
+            flag:false,
+            nowMoseX: 0,
+            mx:sliderel.$("slider-box"),
+            sd:sliderel.$("slider"),
+            st:sliderel.$("slider-text"),
+            sb:sliderel.$("slider-bg"),
+            se:sliderel.$("slider-Emerge"),
+            sg:sliderel.$("stop-go"),
+        }
+    Elemt.sd.onmousedown=function(e){  // onmousedown 按下鼠标按钮 执行Javascript代码
+        var e =sliderel.getEvent(e)
+        sliderel.stopBubble(e);
+        Elemt.flag=true
+        nowMoseX=e.clientX-Elemt.sd.offsetLeft;
+        // console.log('e.clientX---')
+        // console.log(e.clientX)
+        // console.log('滑块的offsetLeft---')
+        // console.log(Elemt.sd.offsetLeft)
+    }
+    //滑块最大移动的距离
+    maxMove=Elemt.mx.offsetWidth -Elemt.sd.offsetWidth;
+    //鼠标移动的时候是否成功
+    Elemt.mx.onmousemove=function(e){  // onmousemove 鼠标指针只要移到指定的元素上就执行Javascript代码
+        var e =sliderel.getEvent(e)
+        console.log(Elemt.flag)
+        if(Elemt.flag){  // 只有在按下的时候才为true,鼠标一松开便为false---以下便为鼠标按下或移动的时候执行的代码
+             var moveX=e.clientX-nowMoseX;
+            var oElemLeft=Elemt.sd.offsetLeft;//判断滑块移动的范围  offsetLeft：相对于父元素距左边的距离
+            if(oElemLeft<0){ //判断滑块是否超出限制位置
+                moveX=0;
+                Elemt.flag=false
+            }else if(oElemLeft>maxMove){
+                moveX=maxMove;
+                Elemt.sg.style.display="block";
+                Elemt.sd.style.display="none"
+                Elemt.sb.style.width=300+"px"
+                Elemt.st.innerHTML="滑动成功"
+                Elemt.st.style.color="#fff"
+            }
+        }
+        Elemt.sd.style.left=moveX+"px"
+        Elemt.sb.style.width=oElemLeft+20+"px";
+    }
+    //当鼠抬起判断是否滑动成功
+    Elemt.mx.onmouseup=function(e){
+        var e =sliderel.getEvent(e)
+        Elemt.flag=false
+        if(Elemt.sd.offsetLeft<maxMove){
+            speed=Math.ceil(Elemt.sd.offsetLeft/40);
+            time=setInterval(function(){  // 通过定时功能实现滑动的感觉
+                if(Elemt.sd.offsetLeft>=0){
+                    Elemt.sd.style.left=Elemt.sd.offsetLeft-speed+"px";  // 滑动过程中滑块的移动
+                    Elemt.sb.style.width=Elemt.sb.offsetWidth-speed+"px";  // 滑动过程中下边背景颜色的变化
+                }else{
+                    clearInterval(time);
+                    return false;
+                }
+            },10)
+        }
+    }
+    //当鼠离开是否滑动成功
+    Elemt.sd.onmouseout=function(e){
+        sliderel.stopBubble(e);
+        Elemt.flag=false;
+        if( Elemt.sd.offsetLeft<maxMove){
+            speed=Math.ceil(Elemt.sd.offsetLeft/40);
+            time=setInterval(function(){
+                if(Elemt.sd.offsetLeft>=0){
+                    Elemt.sd.style.left=Elemt.sd.offsetLeft-speed+"px";
+                    Elemt.sb.style.width=Elemt.sb.offsetWidth-speed+"px";
+                }else{
+                    clearInterval(time);
+                    return false;
+                }
+            },10);
+        }
+    }
+</script>
+
+</html>

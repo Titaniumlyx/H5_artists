@@ -15,6 +15,7 @@
         .tabList{word-break: break-all; width:100%;float:left; line-height:100px; text-align:center; color:#D3D3D3; font-size:36px; font-family: "Arial Black"}
         .lineBorder{ height: 2px; overflow: hidden; border-bottom:1px solid #099; background: #f3f3f3}
         .lineDiv{ background: #099; height: 2px; width: 25%;}
+        .clearfix{content: ''; display: block; clear: both; overflow: hidden;}
     </style>
 <body>
 <!-- 代码部分begin -->
@@ -29,7 +30,7 @@
         <div class="lineDiv"><!--移动的div--></div>
     </div>
     <div class="tabCon">
-        <div class="tabBox">
+        <div class="tabBox clearfix">
             <div class="tabList">
                 1</div>
             <div class="tabList">
@@ -60,7 +61,7 @@
 
         tabBox.style.overflow='hidden';
         tabBox.style.position='relative';
-        tabBox.style.width=windowWidth/tabList.length+"px";
+        tabBox.style.width=windowWidth*(tabList.length)+"px";
 
         for(var i = 0 ;i<tabLi.length; i++ ){
             tabList[i].style.width=windowWidth+"px";
@@ -108,8 +109,8 @@
             ev.preventDefault;
             var touch = ev.touches[0];
             tar=touch.pageX;
-            tabBox.style.webkitTransition='all 0s ease-in-out';
-            tabBox.style.transition='all 0s ease-in-out';
+            tabBox.style.webkitTransition='all 1s ease-in-out';
+            tabBox.style.transition='all 1s ease-in-out';
         };
         //滑动
         function chmove(ev){
@@ -117,16 +118,17 @@
             ev.preventDefault;
             var touch = ev.touches[0];
             var distance = touch.pageX-tar;
-            dist = distance;
+            dist = distance;  // 移动的距离
             init.touchs(tabBox,windowWidth,tar,distance,endX);
+            // endX为-375*n 蓝线移动的距离吧
             init.lineAnme(lineDiv,-dist/tabLi.length-endX/4);
         };
         //离开
         function chend(ev){
-            var str= tabBox.style.transform;
-            var strs = JSON.stringify(str.split(",",1));
+            var str= tabBox.style.transform;  // str为 translate3d(-581.667px, 0px, 0px) 的形式
+            var strs = JSON.stringify(str.split(",",1));  // strs为 ["translate3d(-936.667px"] 的形式
             endX = Number(strs.substr(14,strs.length-18));
-
+            console.log(endX)
             if(endX>0){
                 init.back(tabBox,windowWidth,tar,0,0,0.3);
                 endX=0
@@ -142,7 +144,7 @@
                 OnTab(tabClick.querySelector('.active').start);
             }
             var stars = wrap.querySelector('.active').start;
-            init.lineAnme(lineDiv,stars*windowWidth/4);
+            init.lineAnme(lineDiv,stars*(windowWidth/4));
 
         };
     };
