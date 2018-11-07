@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>移动模块</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .move_box{
+            width: 100px;
+            height: 100px;
+            background: #5e5e;
+            margin: 50px;
+            text-align: center;
+            line-height: 100px;
+            color: #333;
+            position: absolute;
+        }
+        div{
+            -moz-user-select:none;
+            -webkit-user-select:none;
+            user-select:none;  /*设置或检索是否允许用户选中文本*/
+        }
+    </style>
+</head>
+<body>
+   <div class="move_box" id="moveBox">我可以移动哦</div>
+</body>
+<script>
+    var moveBox = document.getElementById("moveBox")
+    var disX = 0
+    var disY = 0
+    moveBox.onmousedown = function(e){
+        var e = e || window.event
+        disX = e.clientX - moveBox.offsetLeft
+        disY = e.clientY - moveBox.offsetTop
+        if(moveBox.setCapture){
+            moveBox.onmousemove = mousemove
+            moveBox.onmouseup = mouseup
+            moveBox.setCapture();  // IE
+        }else{
+            document.onmousemove = mousemove
+            document.onmouseup = mouseup
+        }
+        return false
+    }
+    function mousemove(e){
+        var e = e || window.event
+        var disleft = e.clientX - disX
+        var distop = e.clientY - disY
+        if(disleft < 0){
+            disleft = 0
+        }else if(disleft > (document.documentElement.clientWidth - moveBox.offsetWidth)){
+            disleft = document.documentElement.clientWidth - moveBox.offsetWidth
+        }
+        if(distop < 0){
+            distop = 0
+        }else if(distop > (document.documentElement.clientHeight - moveBox.offsetHeight)){
+            distop = document.documentElement.clientHeight - moveBox.offsetHeight
+        }
+        moveBox.style.left = disleft - 50 + 'px'
+        moveBox.style.top = distop - 50 + 'px'
+    }
+    function mouseup(e){
+        this.onmousemove = null
+        this.onmouseup = null
+        if(this.releaseCapture)
+        {
+            this.releaseCapture();
+        }
+    }
+</script>
+</html>
