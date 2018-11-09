@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <script src="../dist/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".btn1").click(function(){
+                console.log(11)
+                $("body").css({backgroundPosition:"50px 100px"},0);
+            });
+            $(".btn2").click(function(){
+                $("body").css({backgroundPosition:"0% 0%"},0);
+            })
+            console.log('域名hostname---' + window.location.hostname)
+            console.log('路名和文件名pathname---' + window.location.pathname)
+            console.log('端口port---' + window.location.port)
+            console.log('web协议protocol---' + window.location.protocol)
+            console.log('查询部分---' + window.location.search)
+            console.log('锚点---' + window.location.hash)
+            console.log('当前页面的URL(href)---' + window.location.href)  // 包括以上所有
+        })
+    </script>
+    <!--<style type="text/css">
+        body
+        {
+            background-color:#FFCC80;
+            background-image:url(../images/index/artPhoto.jpg);
+            background-repeat:no-repeat
+        }
+    </style>
+    <script type="text/javascript">
+        function changePosition()
+        {
+            document.body.style.backgroundPosition="50px 100px";
+        }
+    </script> -->
+</head>
+
+<body style="background-image:url(../images/index/artPhoto.jpg);
+background-repeat:no-repeat;">
+    <p style="color: #f00">This is a paragraph.</p>
+    <button class="btn1">Animate</button>
+    <button class="btn2">Reset</button>
+</body>
+<!--<body>
+<input type="button"
+       onclick="changePosition()"
+       value="Change background-image position" />
+
+</body> -->
+
+</html>
