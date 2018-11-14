@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #ball{
+            width: 50px;
+            height: 50px;
+            background: red;
+            border-radius: 50%;
+            position: absolute;
+            left: 182px;
+            top: 350px;
+        }
+        #floor{
+            width: 300px;
+            height: 6px;
+            background: saddlebrown;
+            position: absolute;
+            left: 60px;
+            top: 400px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="ball"></div>
+    <div id="floor"></div>
+
+</body>
+<script>
+    (function () {
+        var down = false
+        trans = 'transition'
+        eName = 'transitionend'
+
+        var ball = document.querySelector("#ball")
+        var floor = document.querySelector("#floor")
+        // var ball = document.getElementById("ball")  // 上边与这个同样能用
+        // var floor = document.getElementById("floor")
+
+        function bounce(){
+            if(down){
+                ball.style[trans] = "top 1s cubic-bezier(0,.27,.32,1)"
+                ball.style.top = '50px'
+                down = false
+            }else{
+                ball.style[trans] = "top 1s cubic-bezier(1,0,0.96,0.91)"
+                // ball.style.top = '350px'   // 错误，因为需要一个变化的过程
+                ball.style.top = floor.offsetTop - 51 + 'px'
+                down = true
+            }
+        }
+
+        ball.addEventListener(eName, bounce)
+        bounce()
+    })()
+</script>
+</html>
